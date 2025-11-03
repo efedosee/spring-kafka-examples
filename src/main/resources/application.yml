@@ -6,11 +6,9 @@ spring:
     bootstrap-servers: localhost:9092
     consumer:
       group-id: test-group
-#    producer:
-#      properties:
-#        batch.size: 100
-#    listener:
-#      ack-mode: MANUAL_IMMEDIATE
+      isolation-level: read_committed
+    producer:
+      transaction-id-prefix: tx-
 
-logging.level:
-  org.springframework.kafka: debug
+#logging.level:
+#  org.springframework.kafka: debug

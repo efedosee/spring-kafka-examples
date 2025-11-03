@@ -9,7 +9,7 @@ import org.springframework.kafka.config.TopicBuilder;
 public class AppConfiguration {
     @Bean
     public NewTopic testTopic1() {
-        return TopicBuilder.name("test-topic-1")
+        return TopicBuilder.name("test-topic-2")
                 .partitions(2)
                 .build();
     }
