@@ -10,5 +10,12 @@ spring:
     producer:
       transaction-id-prefix: tx-
 
-#logging.level:
-#  org.springframework.kafka: debug
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: password
+    url: jdbc:postgresql://localhost:5432/postgres
+
+logging.level:
+  org.springframework.kafka: debug
+  org.springframework.jdbc: debug

@@ -33,3 +33,16 @@ services:
       - 8080:8080
     depends_on:
       - kafka
+
+  postgres:
+    image: postgres:17
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data:

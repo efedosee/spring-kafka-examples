@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class AppConsumer {
-    @KafkaListener(topics = "test-topic-2")
+    @KafkaListener(topics = "test-topic-3")
     public void listen(@Payload String data) {
         log.info("Fetched string: {}", data);
     }
