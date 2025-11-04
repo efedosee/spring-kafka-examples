@@ -8,15 +8,15 @@ spring:
       group-id: test-group
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-#        spring.json.use.type.headers: false
-        spring.json.trusted.packages: ru.otus.springkafkaexamples.dto.event
+        spring.json.trusted.packages: ru.otus.springkafkaexamples.dto.*
+        spring.json.type.mapping: event:ru.otus.springkafkaexamples.dto.event.Event, message:ru.otus.springkafkaexamples.dto.message.Message
 #        spring.json.value.default.type: ru.otus.springkafkaexamples.dto.event.Event
     listener:
       ack-mode: MANUAL_IMMEDIATE
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-#      properties:
-#        spring.json.add.type.headers: false
+      properties:
+        spring.json.type.mapping: event:ru.otus.springkafkaexamples.dto.event.Event, message:ru.otus.springkafkaexamples.dto.message.Message
     template:
       default-topic: test-topic-4
 

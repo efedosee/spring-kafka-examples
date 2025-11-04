@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import ru.otus.springkafkaexamples.dto.event.Event;
 import ru.otus.springkafkaexamples.dto.event.EventType;
 import ru.otus.springkafkaexamples.dto.event.Payload;
+import ru.otus.springkafkaexamples.dto.message.Message;
 
 import java.util.UUID;
 
@@ -16,6 +17,7 @@ import java.util.UUID;
 @Slf4j
 public class AppProducer {
     private final KafkaTemplate<String, Event> eventKafkaTemplate;
+    private final KafkaTemplate<String, Message> messageKafkaTemplate;
 
 
     @Scheduled(fixedRate = 10_000)
@@ -32,5 +34,20 @@ public class AppProducer {
                     return null;
                 })
                 .thenAccept(res -> log.info("Sent event result: {}", res));
+    }
+
+    @Scheduled(fixedRate = 10_000, initialDelay = 1_000)
+    public void sendMessage() {
+        UUID id = UUID.randomUUID();
+        var message = new Message(
+                id,
+                "Hello"
+        );
+        messageKafkaTemplate.sendDefault(id.toString(), message)
+                .exceptionally(ex -> {
+                    log.error("Exception while sending message", ex);
+                    return null;
+                })
+                .thenAccept(res -> log.info("Sent message result: {}", res));
     }
 }
