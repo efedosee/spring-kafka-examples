@@ -26,7 +26,7 @@ public class AppConsumer {
     @KafkaListener(topics = "${spring.kafka.template.default-topic}")
     public void listen(@Payload Event event, Acknowledgment acknowledgment) {
         log.info("Fetched event: {}", event);
-        acknowledgment.acknowledge();
 //        throw new RuntimeException("retry test");
+        acknowledgment.acknowledge();
     }
 }
