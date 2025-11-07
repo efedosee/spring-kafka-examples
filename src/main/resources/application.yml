@@ -23,7 +23,7 @@ spring:
 #      spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
 #      spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
     template:
-      default-topic: test-topic-4
+      default-topic: test-topic-5
 
 #logging.level:
 #  org.springframework.kafka: debug
