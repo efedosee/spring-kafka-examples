@@ -6,9 +6,9 @@ spring:
     bootstrap-servers: localhost:9092
     consumer:
       group-id: test-group
-#      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
-#      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+#      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
 #        spring.json.use.type.headers: false
         spring.json.trusted.packages: ru.otus.springkafkaexamples.dto.event
@@ -19,9 +19,9 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 #      properties:
 #        spring.json.add.type.headers: false
-#    properties:
-#      spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
-#      spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+    properties:
+      spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+      spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
     template:
       default-topic: test-topic-4
 
