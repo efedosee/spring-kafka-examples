@@ -16,7 +16,7 @@ public class AppConsumer {
         acknowledgment.acknowledge();
     }
 
-    @KafkaListener(topics = "test-topic-1")
+    @KafkaListener(topics = "${spring.kafka.template.default-topic}")
     public void listen(Object data) {
         log.info("Fetched data: {}", data);
     }
