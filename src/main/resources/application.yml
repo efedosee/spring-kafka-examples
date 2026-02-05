@@ -16,4 +16,4 @@ spring:
 #      ack-mode: MANUAL_IMMEDIATE
 
 logging.level:
-  org.springframework.kafka: debug
+  org.springframework.kafka: info
