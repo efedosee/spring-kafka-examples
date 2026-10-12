@@ -17,5 +17,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres
 
 logging.level:
-  org.springframework.kafka: debug
+  org.springframework.kafka: off
+  org.apache.kafka: off
   org.springframework.jdbc: debug
+  ru.otus.springkafkaexamples: debug
